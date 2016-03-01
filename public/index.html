@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./app.css">
+    </head>
+    <body ng-app="app">
+        <!-- Menu -->
+        <ul>
+            <li>
+                <a ui-sref="catalogue"> Catalogue </a>
+            </li>
+        </ul>
+        
+        <!-- Nested view container -->
+        <div ui-view></div>
+        
+        <!-- Load vendor files -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+        
+        <!-- Load main file -->
+        <script src="./app.js"></script>
+    </body>
+</html>

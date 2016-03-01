@@ -1,0 +1,15 @@
+ul {
+    list-style: none;
+}
+
+.catalogue {
+    overflow: hidden;
+}
+
+.catalogue > a {
+    float: left;
+    margin-right: 10px;
+    display: block;
+    padding: 20px;
+    border: solid 1px black;
+}

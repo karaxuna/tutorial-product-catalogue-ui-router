@@ -1,0 +1,12 @@
+{
+    "name": "tutorial-product-catalogue-ui-router",
+    "description": "Simple product catalogue example created with angular and ui-router",
+    "version": "0.0.1",
+    "author": "Kakhaber Bazerashvili",
+    "dependencies": {
+        "express": "4.9.7"
+    },
+    "scripts": {
+        "start": "node index.js"
+    }
+}
