@@ -106,6 +106,14 @@ $stateProvider.state('catalogue', {
 ### Nested states
 You can add child state by adding `.` in state name. For example:
 
-    foo // parent
+    foo // parent state name
     foo.bar // child of foo
     foo.bar.baz // child of foo.bar
+    
+Child states inherit url of parent state, if `foo` state has url `/foo` and `foo.bar` state has url `/bar`, then when navigating on `/foo/bar` it will load `foo` state and `foo.bar` inside it. Child state's html content will be loaded in parent state's `<div ui-view></div>` element. You can see nesting example by running demo app.
+
+### Running demo app
+1. [Install nodejs](https://nodejs.org/en/download/)
+2. Run `npm install`
+3. Run `npm start`
+4. Visit `http://localhost:8080`
