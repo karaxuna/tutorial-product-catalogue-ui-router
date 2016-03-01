@@ -117,3 +117,5 @@ Child states inherit url of parent state, if `foo` state has url `/foo` and `foo
 2. Run `npm install`
 3. Run `npm start`
 4. Visit `http://localhost:8080`
+
+You can see more information on [ui-router's main page](https://angular-ui.github.io/ui-router/site/#/api/ui.router).
