@@ -2,7 +2,7 @@
 
 ![diagram](./screens/diagram.png)
 
-In this tutorial I will show you product catalogue example using ui-router. First I will tell you about ui-router's benefits over angular's default ngRoute module:
+In this tutorial I will show you how to use ui-router in your project. First I will tell you about ui-router's benefits over angular's default ngRoute module:
 
 1. ui-router allows nested views.
 2. You navigate using state names, url is defined in state configuration only once. This is very helpful because if you want to change some page's url, you have to do it in just one place.
