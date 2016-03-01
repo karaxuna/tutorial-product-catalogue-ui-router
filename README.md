@@ -113,9 +113,10 @@ You can add child state by adding `.` in state name. For example:
 Child states inherit url of parent state, if `foo` state has url `/foo` and `foo.bar` state has url `/bar`, then when navigating on `/foo/bar` it will load `foo` state and `foo.bar` inside it. Child state's html content will be loaded in parent state's `<div ui-view></div>` element. You can see nesting example by running demo app.
 
 ### Running demo app
-1. [Install nodejs](https://nodejs.org/en/download/)
-2. Run `npm install`
-3. Run `npm start`
-4. Visit `http://localhost:8080`
+1. Clone repository `git clone https://github.com/karaxuna/tutorial-product-catalogue-ui-router`
+2. [Install nodejs](https://nodejs.org/en/download/)
+3. In project root run `npm install`
+4. Run `npm start`
+5. Visit `http://localhost:8080`
 
 You can see more information on [ui-router's main page](https://angular-ui.github.io/ui-router/site/#/api/ui.router).
