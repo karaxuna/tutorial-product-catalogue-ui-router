@@ -32,11 +32,32 @@ $stateProvider.state('catalogue', {
 });
 ```
 
-Here we have defined state called "catalogue" with url `/catalogue`. We also indicate a template which will be loaded when navigating to `/catalogue`. Where this template will be inserted in html? For this purpose we have `ui-view` directive:
+Here we have defined state called "catalogue" with url `/catalogue`. We also indicate a template url which will be loaded when navigating to `/catalogue`. Where this template will be inserted in html? For this purpose we have `ui-view` directive under menu:
 
 ```html
+<ul>
+    <li>
+        <a ui-sref="catalogue"> Catalogue </a>
+    </li>
+</ul>
+        
+<!-- Nested view container -->
 <div ui-view></div>
 ```
+
+For creating links we use `ui-sref` directive which will find out which url matches state name and puts `href` attribute, so it becomes:
+
+```html
+<ul>
+    <li>
+        <a ui-sref="catalogue" href="/#/catalogue"> Catalogue </a>
+    </li>
+</ul>
+```
+
+
+
+
 
 So when navigating to `/catalogue`, `<div>Catalogue view</div>` will be loaded into `<div ui-view></div>` tag and we get:
 
