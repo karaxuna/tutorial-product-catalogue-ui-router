@@ -9,7 +9,7 @@ In this tutorial I will show you how to use ui-router in your project. First I w
 
 These are two main, huge benefits of using ui-router. Almost every project needs these qualities when it's about routing. Let's follow step by step guide how to set up and configure ui-router's states:
 
-### First we shall include necessary scripts
+### First include necessary scripts
 
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
