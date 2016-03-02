@@ -70,6 +70,42 @@ On clicking link we navigate to catalogue page:
 
 ![catalogue](./screens/open-catalogue.gif)
 
+### Product page
+We shall create `product` state which is sibling of `catalogue` state:
+
+```javascript
+$stateProvider.state('product', {
+    // Example: /product/3 where productId has value 3
+    url: '/product/:productId',
+    templateUrl: './views/product.html',
+    // Get product by `productId` from path
+    resolve: {
+        product: ['$stateParams', 'productSrvc', function ($stateParams, productSrvc) {
+            return productSrvc.getById($stateParams.productId);
+        }]
+    },
+    controller: ['$scope', 'product', function ($scope, product) {
+        $scope.product = product;
+    }]
+})
+```
+
+We want to navigate from catalogue to specific product page. Let's add following html in `views/catalogue.html`:
+
+```html
+<div class="catalogue">
+    <a ng-repeat="product in products" ui-sref="^.product({ productId: product.id })">
+        <div> {{product.name}} </div>
+        <div> Price: {{product.price}} </div>
+    </a>
+</div>
+```
+
+Anchor tag will repeat as many times as many products we have, so `ui-sref` will create individual `href` attribute for each one.
+
+
+
+
 
 
 
