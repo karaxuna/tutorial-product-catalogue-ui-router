@@ -28,15 +28,92 @@ To set states, you shall inject `$stateProvider` into `app.config`:
 ```javascript
 $stateProvider.state('catalogue', {
     url: '/catalogue',
-    template: '<div>Catalogue view</div>'
+    templateUrl: './views/catalogue.html',
+    // Here we get products asynchronously and inject in controller.
+    // Controller will not execute until `productSrvc.getAll()` promise gets resolved.
+    resolve: {
+        products: ['productSrvc', function (productSrvc) {
+            return productSrvc.getAll();
+        }]
+    },
+    // `products` is available thanks to resolve
+    controller: ['$scope', 'products', function ($scope, products) {
+        $scope.products = products;
+    }]
 });
 ```
 
-Here we have defined state called "catalogue" with url `/catalogue`. We also indicate a template which will be loaded when navigating to `/catalogue`. Where this template will be inserted in html? For this purpose we have `ui-view` directive:
+Here we have defined state called "catalogue" with url `/catalogue`. We also indicate a template url which will be loaded when navigating to `/catalogue`. Where this template will be inserted in html? For this purpose we have `ui-view` directive under menu:
 
 ```html
+<ul>
+    <li>
+        <a ui-sref="catalogue"> Catalogue </a>
+    </li>
+</ul>
+        
+<!-- Nested view container -->
 <div ui-view></div>
 ```
+
+For creating links we use `ui-sref` directive which will find out which url matches state name and puts `href` attribute, so it becomes:
+
+```html
+<ul>
+    <li>
+        <a ui-sref="catalogue" href="/#/catalogue"> Catalogue </a>
+    </li>
+</ul>
+```
+
+On clicking link we navigate to catalogue page:
+
+![catalogue](./screens/open-catalogue.gif)
+
+### Product page
+We shall create `product` state which is sibling of `catalogue` state:
+
+```javascript
+$stateProvider.state('product', {
+    // Example: /product/3 where productId has value 3
+    url: '/product/:productId',
+    templateUrl: './views/product.html',
+    // Get product by `productId` from path
+    resolve: {
+        product: ['$stateParams', 'productSrvc', function ($stateParams, productSrvc) {
+            return productSrvc.getById($stateParams.productId);
+        }]
+    },
+    controller: ['$scope', 'product', function ($scope, product) {
+        $scope.product = product;
+    }]
+})
+```
+
+We want to navigate from catalogue to specific product page. Let's add following html in `views/catalogue.html`:
+
+```html
+<div class="catalogue">
+    <a ng-repeat="product in products" ui-sref="^.product({ productId: product.id })">
+        <div> {{product.name}} </div>
+        <div> Price: {{product.price}} </div>
+    </a>
+</div>
+```
+
+Here we display brief information about product. Anchor tag will repeat as many times as many products we have, so `ui-sref` will create individual `href` attribute for each one. When we click on link, it will navigate to product page:
+
+![open product](./screens/open-product.gif)
+
+
+
+
+
+
+
+
+
+
 
 So when navigating to `/catalogue`, `<div>Catalogue view</div>` will be loaded into `<div ui-view></div>` tag and we get:
 
