@@ -28,7 +28,18 @@ To set states, you shall inject `$stateProvider` into `app.config`:
 ```javascript
 $stateProvider.state('catalogue', {
     url: '/catalogue',
-    template: '<div>Catalogue view</div>'
+    templateUrl: './views/catalogue.html',
+    // Here we get products asynchronously and inject in controller.
+    // Controller will not execute until `productSrvc.getAll()` promise gets resolved.
+    resolve: {
+        products: ['productSrvc', function (productSrvc) {
+            return productSrvc.getAll();
+        }]
+    },
+    // `products` is available thanks to resolve
+    controller: ['$scope', 'products', function ($scope, products) {
+        $scope.products = products;
+    }]
 });
 ```
 
