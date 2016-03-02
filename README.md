@@ -133,7 +133,16 @@ So `product.similars` is child state of `product`. Child state's url is appended
 <a ui-sref=".similars">Similar products</a>
 ```
 
-`.similars` is relative state name and in this case is equal to `product.similars`. It's best practice to use relative state names in links instead of absolute ones, because changing parent state name does not break relative links. Clicking on it results:
+`.similars` is relative state name and in this case is equal to `product.similars`. It's best practice to use relative state names in links instead of absolute ones, because changing parent state name does not break relative links. Here are some examples of relative links:
+
+```
+'some.another' - absolute state name
+'^' - parent state
+'^.sibling' - sibling state
+'.grandchild' - child state
+```
+
+Now let's click on Similar products link:
 
 ![open similar products](./screens/open-similars.gif)
 
