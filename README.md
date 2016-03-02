@@ -139,7 +139,7 @@ So `product.similars` is child state of `product`. Child state's url is appended
 'some.another' - absolute state name
 '^' - parent state
 '^.sibling' - sibling state
-'.grandchild' - child state
+'.child' - child state
 ```
 
 Now let's click on Similar products link:
