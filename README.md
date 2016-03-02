@@ -94,7 +94,7 @@ We want to navigate from catalogue to specific product page. Let's add following
 
 ```html
 <div class="catalogue">
-    <a ng-repeat="product in products" ui-sref="^.product({ productId: product.id })">
+    <a ng-repeat="product in products" ui-sref="product({ productId: product.id })">
         <div> {{product.name}} </div>
         <div> Price: {{product.price}} </div>
     </a>
@@ -127,7 +127,13 @@ $stateProvider.state('product.similars', {
 });
 ```
 
-So `product.similars` is child state of `product`. Child state's url is appended to parent states recursively. In this case, url `/product/2/similars` will match `product.similars` state and loads its template:
+So `product.similars` is child state of `product`. Child state's url is appended to parent states recursively. We add link to child state in `product.html`:
+
+```html
+<a ui-sref=".similars">Similar products</a>
+```
+
+`.similars` is relative state name and in this case is equal to `product.similars`. It's best practice to use relative state names in links instead of absolute ones, because changing parent state name does not break relative links. Clicking on it results:
 
 ![open similar products](./screens/open-similars.gif)
 
