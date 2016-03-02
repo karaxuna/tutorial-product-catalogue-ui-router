@@ -1,5 +1,5 @@
 <div class="catalogue">
-    <a ng-repeat="product in products" ui-sref="^.product({ productId: product.id })">
+    <a ng-repeat="product in products" ui-sref="product({ productId: product.id })">
         <div> {{product.name}} </div>
         <div> Price: {{product.price}} </div>
     </a>
