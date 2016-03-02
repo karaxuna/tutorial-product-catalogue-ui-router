@@ -66,6 +66,13 @@ For creating links we use `ui-sref` directive which will find out which url matc
 </ul>
 ```
 
+On clicking link we navigate to catalogue page:
+
+![catalogue](./screens/open-catalogue.gif)
+
+
+
+
 
 
 
