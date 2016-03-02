@@ -138,6 +138,8 @@ So `product.similars` is child state of `product`. Child state's url is appended
 ![open similar products](./screens/open-similars.gif)
 
 ### Running demo app
+To see everything this in action, you can run demo app yourself:
+
 1. Clone repository `git clone https://github.com/karaxuna/tutorial-product-catalogue-ui-router`
 2. [Install nodejs](https://nodejs.org/en/download/)
 3. In project root run `npm install`
