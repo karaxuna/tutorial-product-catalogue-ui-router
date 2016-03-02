@@ -101,7 +101,9 @@ We want to navigate from catalogue to specific product page. Let's add following
 </div>
 ```
 
-Anchor tag will repeat as many times as many products we have, so `ui-sref` will create individual `href` attribute for each one.
+Here we display brief information about product. Anchor tag will repeat as many times as many products we have, so `ui-sref` will create individual `href` attribute for each one. When we click on link, it will navigate to product page:
+
+![open product](./screens/open-product.gif)
 
 
 
