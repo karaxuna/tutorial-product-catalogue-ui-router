@@ -105,7 +105,31 @@ Here we display brief information about product. Anchor tag will repeat as many 
 
 ![open product](./screens/open-product.gif)
 
+### Creating child state (similar products)
+Child states are created by appending `.` + name to parent state:
 
+```javascript
+$stateProvider.state('product.similars', {
+    // This is child state, so it will inherit url from parent
+    // For example this will match: /product/2/similars
+    url: '/similars',
+    templateUrl: './views/similars.html',
+    // Get similar products. You can see that we can inject another resolve.
+    // In this case it will execute after product promise resolves
+    resolve: {
+        similarProducts: ['product', 'productSrvc', function (product, productSrvc) {
+            return productSrvc.getSimilars(product.id);
+        }]
+    },
+    controller: ['$scope', 'similarProducts', function ($scope, similarProducts) {
+        $scope.similarProducts = similarProducts;
+    }]
+});
+```
+
+So `product.similars` is child state of `product`. Child state's url is appended to parent states recursively. In this case, url `/product/2/similars` will match `product.similars` state and loads its template:
+
+![open similar products](./screens/open-similars.gif)
 
 
 
